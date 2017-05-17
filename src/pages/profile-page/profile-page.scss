@@ -1,0 +1,35 @@
+page-profile-page {
+
+.page_container {
+  display: -webkit-flex;
+  -webkit-flex-direction: column;
+}
+.header {
+     -webkit-flex: 1.5 !important;
+     -webkit-align-items: center;
+     background-color: #1abc9c;
+}
+.page_container > .row {
+     -webkit-flex: 0.5;
+}
+
+.item .label-md {
+    margin: 0 !important;
+}
+
+.item .item-inner {
+    padding: 0 !important;
+}
+
+.no-padding {
+    padding: 0px !important;
+}
+
+.loading_spinner {
+    width: 28px;
+    height: 28px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+}

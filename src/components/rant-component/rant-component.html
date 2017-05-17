@@ -1,0 +1,32 @@
+<ion-card>
+  <ion-item>
+    <ion-avatar item-left (click)="showUserProfile(rant.user_id)">
+      <img src={{avatar_url}} class="rant_avatar">
+    </ion-avatar>
+    <h2 (click)="showUserProfile(rant.user_id)">@{{rant.user_username}}</h2>
+    <!--<p>{{rant.created_time | timestampDate | date:"MMMM, dd"}}</p>-->
+    <p>{{rant.created_time | timestampDate | momentsAgo}}</p>
+    <ion-icon *ngIf="showShare" name="share-alt" (click)="shareRant()" item-right color="primary"></ion-icon>
+  </ion-item>
+
+  <img *ngIf="rant.attached_image.url" src={{rant.attached_image.url}} (click)="showRantImage()" class="rant_image">
+
+  <ion-card-content text-wrap (click)="showRantDetail(rant.id)">
+    <p style="white-space: pre-line">{{rant.text}}</p>
+  </ion-card-content>
+
+  <ion-row class="buttons_background" *ngIf="showButtons">
+    <ion-col center text-center style="border-right: 1px solid #e0e0e0;">
+      <button ion-button icon-left clear small>
+        <ion-icon name="thumbs-up"></ion-icon>
+        <div>{{rant.score}} Votes</div>
+      </button>
+    </ion-col>
+    <ion-col center text-center (click)="showRantDetail(rant.id)">
+      <button ion-button icon-left clear small>
+        <ion-icon name="text"></ion-icon>
+        <div>{{rant.num_comments}} Comment(s)</div>
+      </button>
+    </ion-col>
+  </ion-row>
+</ion-card>
